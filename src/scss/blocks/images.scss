@@ -1,0 +1,10 @@
+@use "../mixins/responsive.scss" as *;
+
+.image-intro {
+  @include responsive(desktop) {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    padding: 100px 165px;
+  }
+}

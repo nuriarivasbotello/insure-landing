@@ -1,1 +1,18 @@
+@use "../mixins/responsive.scss" as *;
+@use "../mixins/hover.scss" as *;
 
+.button {
+    padding: 13px 29px;
+    border: 1px solid var(--white);
+    font-family: var(--font-family-karla);
+    font-weight: var(--font-weight-bold);
+    font-size: 13px;
+
+  @include responsive(desktop) {
+    background-color: var(--color-primary);
+    @include hover {
+        color: var(--color-primary);
+        background-color: var(--white);
+    }
+  }
+}

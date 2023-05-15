@@ -1,0 +1,77 @@
+@use "../mixins/responsive.scss" as *;
+@use "../mixins/hover.scss" as *;
+
+.menu {
+    width: 100%;
+    height: calc(100vh - 80px);
+  position: fixed;
+  top: 80px;
+  background-color: var(--color-menu);
+  color: var(--white);
+  text-align: center;
+  padding: 40px 24px;
+  font-family: var(--font-family-karla);
+  font-weight: var(--font-weight-bold);
+  font-size: 20px;
+  letter-spacing: 2px;
+  background-image: url(./assets/images/bg-pattern-mobile-nav.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom right;
+  transform: translateX(100%);
+  transition: transform 0.3s;
+  z-index: 1;
+
+  @include responsive(desktop) {
+      height: 0;
+      transform: translateX(0);
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      position: relative;
+    top: -40px;
+    transition: none;
+    gap: 1.5625rem;
+    padding: 0 165px;
+    background-image: none;
+    z-index: 0;
+    font-size: 13px;
+    color: var(--color-terciary);
+    background-color: transparent;
+  }
+}
+
+.toggle-menu {
+  @include responsive(desktop) {
+    display: none;
+  }
+}
+.menu--show {
+  transform: translateX(0);
+}
+
+.menu__item {
+  margin-bottom: 48px;
+
+  @include responsive(desktop) {
+    margin-bottom: 0;
+
+    @include hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.menu__view {
+  border: 1px solid var(--white);
+  padding: 13px 28px;
+
+  @include responsive(desktop) {
+    border: 1px solid var(--color-terciary);
+
+    @include hover {
+      color: var(--white);
+      background-color: var(--color-primary);
+    }
+  }
+}
